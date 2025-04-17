@@ -1,3 +1,4 @@
-# requirements.txt
-
-django&gt;=4.2 djangorestframework&gt;=3.14 psycopg2-binary&gt;=2.9 python-decouple&gt;=3.`8
+django>=4.2
+djangorestframework>=3.14
+psycopg2-binary>=2.9
+python-decouple>=3.8
