@@ -11,11 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-from datetime import timedelta
-from dotenv import load_dotenv
-import os
 
-load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,22 +26,7 @@ SECRET_KEY = 'django-insecure-ja28g&bco7jbp+0$fofj(tu7!*m78q#)i3fild+n&(m)yp5f0v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-
-
-REST_FRAMEWORK={
-    "DEFAULT_AUTHENTICATION_CLASSES":(
-      "rest_framework_simplejwt.authentication.JWTAuthentication",
-    ),
-    "DEFAULT_PERMISSION_CLASSES":[
-      "rest_framework.permissions.IsAuthenticated",
-    ],
-}
-
-SIMPLE_JWT={
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=1)
-}
+ALLOWED_HOSTS = []
 
 
 
@@ -58,13 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders',
-    'rest_framework',
+    
 
 ]
 
 MIDDLEWARE = [
-  'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -146,7 +125,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-# AUTH_USER_MODEL='user_account.User'
-
-CORS_ALLOW_ALL_ORIGINS=True
-CORS_ALLOWS_CREDENTIALS=True

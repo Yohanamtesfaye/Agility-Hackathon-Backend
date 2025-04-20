@@ -24,7 +24,6 @@ class UserRegisterSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError({"phone_number": "A user with this phone number already exists."})
         return data
     def create(self, validated_data):
-        print("Validated data:", validated_data)  # Debugging
         validated_data.pop('password_confirmation')
         user = User.objects.create_user(
             email=validated_data['email'],
@@ -40,9 +39,13 @@ class UserDetailSerializer(serializers.ModelSerializer):
         model = User
         fields = [
             'id', 'name', 'userName', 'phone_number','email','gender', 'location', 'role'
-        ]   
+        ]  
+          
 
 class StatusSerializer(serializers.ModelSerializer):
     class Meta:
         model = Status
-        fields = '__all__'
+        fields = ['id', 'owner', 'status_type', 'name', 'description', 'created_at']
+        read_only_fields = ['id', 'created_at']  
+
+        
