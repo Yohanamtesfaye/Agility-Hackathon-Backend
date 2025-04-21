@@ -10,7 +10,7 @@ road_severity=(
 
 class Report(models.Model):
     id=models.UUIDField(unique=True,primary_key=True,default=uuid.uuid4)
-    # user_id=models.ForeignKey()
+    # user_id=models.ForeignKey() // awaiting user model
     # category_id=models.ForeignKey()
     description=models.TextField()
     severity=models.IntegerField(choices=road_severity,default=1)
