@@ -63,7 +63,13 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     # 'rest_framework_simplejwt',
+
+    'notifications',
 ]
+
+# Email configuration (development)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'noreply@safecity.com'
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
